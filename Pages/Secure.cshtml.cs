@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using oidc_authentication.Core;
 using oidc_authentication.Model;
 using System.Security.Claims;
 
@@ -14,6 +15,11 @@ namespace sso_authentication.Pages
     {
       AuthenticateResult authResult = await HttpContext.AuthenticateAsync();
       SessionModel = new SessionModel(authResult?.Principal?.Claims, authResult?.Properties?.Items);
+    }
+
+    public async Task<IActionResult> OnPost()
+    {
+      return SignOut(LayerSchemas.Cookie, LayerSchemas.Oidc);
     }
   }
 }

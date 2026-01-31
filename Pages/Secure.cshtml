@@ -5,7 +5,7 @@
 <div class="container mt-5">
   <div class="card">
     <div class="card-header bg-primary text-white">
-      <h1 class="mb-0">User Claims</h1>
+      <h1 class="mb-0">USER DATA</h1>
     </div>
     <div class="card-body">
       @if (Model.SessionModel != null && Model.SessionModel.Claims != null) {
@@ -19,7 +19,7 @@
       </dl>
       }
       @if (Model.SessionModel != null && Model.SessionModel.Metadata != null) {
-        <h3>Metadata</h3>
+        <h3>METADATA</h3>
         <dl class="row">
           @foreach (var metadata in Model.SessionModel.Metadata)
           {
